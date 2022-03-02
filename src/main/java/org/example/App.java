@@ -21,12 +21,13 @@ public class App
         String userName = "root";   // default
         String password = "";       // default
 
-         try ( Connection conn = DriverManager.getConnection(url + dbName, userName, password) )
+         try ( Connection conn =
+                       DriverManager.getConnection(url + dbName, userName, password) )
         {
             System.out.println("Your program has successfully connected to the MySql Database Server.");
             System.out.println("... you could query the database using the SQL commands you learned in DBMS...");
             System.out.println("... but for now, we will simply close the connection.");
-            conn.close();
+
             System.out.println("Your program has disconnected from the database");
         }
         catch (SQLException ex)

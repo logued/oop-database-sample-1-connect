@@ -1,9 +1,10 @@
-package org.example;        // Feb 2022
+package org.example;        // Feb 2023
 
 import java.sql.*;
 /**
  * Connecting to a MySQL Database Server.
  * This program simply attempts to connect to a database - but does nothing else.
+ * You MUST first Start the MySql Server (from XAMPP)
  */
 
 public class App
@@ -24,15 +25,15 @@ public class App
          try ( Connection conn =
                        DriverManager.getConnection(url + dbName, userName, password) )
         {
-            System.out.println("Your program has successfully connected to the MySql Database Server.");
-            System.out.println("... you could query the database using the SQL commands you learned in DBMS...");
+            System.out.println("SUCCESS ! - Your program has successfully connected to the MySql Database Server. Well done.");
+            System.out.println("... we could query the database using the SQL commands you learned in DBMS...");
             System.out.println("... but for now, we will simply close the connection.");
 
-            System.out.println("Your program has disconnected from the database");
+            System.out.println("Your program is disconnecting from the database - goodbye.");
         }
         catch (SQLException ex)
         {
-            System.out.println("Failed to connect to database - check MySQL is running and that you are using the correct database details");
+            System.out.println("Failed to connect to database - check that you have started the MySQL from XAMPP, and that your connection details are correct.");
             ex.printStackTrace();
         }
     }

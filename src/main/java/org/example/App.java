@@ -1,4 +1,4 @@
-package org.example;        // Feb 2023
+package org.example;        // Jan 2025
 
 import java.sql.*;
 /**
@@ -17,12 +17,21 @@ public class App
 
         System.out.println("\nSample 1 - Connecting to MySQL Database called \"test\" using MySQL JDBC Driver");
 
-        String url = "jdbc:mysql://localhost/";
-        String dbName = "test";
+
+        String url = "jdbc:mysql://localhost/"; // location of database
+        String dbName = "test";     // database name
         String userName = "root";   // default
         String password = "";       // default
 
-         try ( Connection conn =
+        /// Note that we need a DriverManager installed to connect to the database.
+        /// The driver is specified in the "pom.xml" file as follows: (take a look)
+        ///      <dependency>
+        ///       <groupId>mysql</groupId>
+        ///       <artifactId>mysql-connector-java</artifactId>
+        ///
+
+        ///  Attempt to connect to the database using the credentials supplied
+        try ( Connection conn =
                        DriverManager.getConnection(url + dbName, userName, password) )
         {
             System.out.println("SUCCESS ! - Your program has successfully connected to the MySql Database Server. Well done.");
@@ -33,6 +42,8 @@ public class App
         }
         catch (SQLException ex)
         {
+            /// If the attempt to connect fails, and exception is thrown we end up here in
+            /// the  catch block (the exception handler)
             System.out.println("Failed to connect to database - check that you have started the MySQL from XAMPP, and that your connection details are correct.");
             ex.printStackTrace();
         }

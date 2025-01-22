@@ -7,11 +7,11 @@ import java.sql.*;
  * You MUST first Start the MySql Server (from XAMPP)
  */
 
-public class App
+public class AppMain
 {
     public static void main(String[] args) {
-        App app = new App();
-        app.start();
+        AppMain appMain = new AppMain();
+        appMain.start();
     }
     public void start() {
 
